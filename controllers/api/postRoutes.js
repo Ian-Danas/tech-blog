@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
     return res.status(403).json({msg:"login first!"})
   }
   try {
-    const newProject = await Post.create({
+    const newpost = await Post.create({
       ...req.body,
       user_id: req.session.user_id,
     });

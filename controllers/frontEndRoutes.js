@@ -4,7 +4,7 @@ const {Post,User,Comment} = require('../models');
 
 router.get("/",(req,res)=>{
     Post.findAll({
-        include:[User]
+        include:[User,Comment]
     }).then(postData=>{
         const hbsData = postData.map(post=>post.get({plain:true}));
         console.log(hbsData);
@@ -12,17 +12,6 @@ router.get("/",(req,res)=>{
             allPosts:hbsData,
             logged_in: req.session.logged_in
         })
-    })
-})
-
-router.get("/post/:id",(req,res)=>{
-    Post.findByPk(req.params.id,{
-        include:[User]
-    }).then(projData=>{
-        const hbsData = projData.get({plain:true});
-        hbsData.logged_id=req.session.logged_id
-        console.log(hbsData);
-        res.render("singlePost",hbsData)
     })
 })
 
@@ -56,16 +45,12 @@ router.get("/dashboard",(req,res)=>{
         User.findByPk(req.session.user_id,{
             include:[Post]
         }).then(userData=>{
-            const user = userData.get({plain:true})
-            console.log(user)
-            user.logged_in=req.session.logged_in;
-            res.render("dashboard",{
-                allPosts:user,
-                logged_in: req.session.logged_in
-            })
+            const hbsData = userData.get({plain:true})
+            console.log(hbsData)
+            hbsData.logged_in=req.session.logged_in;
+            res.render("dashboard",hbsData)
         })
     }
-
 })
 
 module.exports = router;

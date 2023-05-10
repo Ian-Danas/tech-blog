@@ -1,9 +1,46 @@
-<h1>Dashboard</h1>
-<P>{{user.id}}</P>
-{{#each allPosts}}
-    <p>{{content}}</p>
-    {{!-- {{#each posts}}
-       <p>{{content}}</p> 
-    {{/each}} --}}
-{{/each}}
-<button id = 'addPost'>add post</button>
+<h1>Dashboard </h1>
+<h4 id = 'username' data-id="{{id}}">{{username}} Posts</h4>
+{{#posts}}
+    <div class="card">
+    <div class="card-header">
+        {{this.title}}
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+        <p>{{this.content}}</p>
+        <footer class="blockquote-footer"> created on {{this.date_created}} </footer>
+        </blockquote>
+    </div>
+    </div>
+{{/posts}}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add post
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Form for new post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Title</span>
+            <input id = 'title' type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        </div>
+        <div class="input-group">
+            <span  class="input-group-text">Post text</span>
+            <textarea id = 'content' class="form-control" aria-label="With textarea"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id='addPost' type="button" class="btn btn-primary">Add post</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/dashboard.js"></script>
