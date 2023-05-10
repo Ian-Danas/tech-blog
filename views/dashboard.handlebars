@@ -1,0 +1,9 @@
+<h1>Dashboard</h1>
+<P>{{user.id}}</P>
+{{#each allPosts}}
+    <p>{{content}}</p>
+    {{!-- {{#each posts}}
+       <p>{{content}}</p> 
+    {{/each}} --}}
+{{/each}}
+<button id = 'addPost'>add post</button>
