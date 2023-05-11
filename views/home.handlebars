@@ -1,6 +1,6 @@
 <h1>Blog Posts!</h1>
 {{#each allPosts}}
-    <div class="card">
+    <div data-postID="{{id}}" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <div class="card-header">
         {{title}}
     </div>
@@ -9,7 +9,7 @@
         <p>{{content}}</p>
         <footer class="blockquote-footer">{{user.username}} on {{date_created}} </footer>
         </blockquote>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button id ='POSTbtn'  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add Comment
 </button>
 
@@ -29,7 +29,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button data-postID="{{id}}" id='addComment' type="button" class="btn btn-primary">Add comment</button>
+        <button  id='addComment' type="button" class="btn btn-primary">Add comment</button>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <h1>Dashboard </h1>
 <h4 id = 'username' data-id="{{id}}">{{username}} Posts</h4>
 {{#posts}}
-    <div class="card">
+    <div id = 'post' data-id = "{{this.id}}"class="card">
     <div class="card-header">
         {{this.title}}
     </div>
@@ -10,6 +10,8 @@
         <p>{{this.content}}</p>
         <footer class="blockquote-footer"> created on {{this.date_created}} </footer>
         </blockquote>
+        <button id='delPost' type="delbutton" class="btn btn-primary">delete post</button>
+        <button id='updatePost' type="delbutton" class="btn btn-primary">update post</button>
     </div>
     </div>
 {{/posts}}
