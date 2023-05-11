@@ -22,6 +22,8 @@ To run this application locally the user should first clone the repository. From
 
 ## Usage <a id = "Usage"></a>
 To use the site the user should first either login or signup by selecting the login button in the nav bar. From there they can add posts by going to the dashboard and then clicking the add post button and filling out the form. The user will then be taken back to the home page and the post that they made will be added to the homepage. Users on the homepage can also click the add comment button and fill out the form and a comment will show up underneith the post.
+
+Deployed Site: https://iandanas-techblog.herokuapp.com/
 ## Contributing <a id = "Contributing"></a>
 Ian Danas
 ## Tests <a id = "Tests"></a>
