@@ -1,20 +1,22 @@
-addCommentbtn = document.querySelector('#addComment')
-console.log(addCommentbtn)
+const addCommentbtn = document.querySelectorAll('#addComment')
 
-addCommentbtn.addEventListener("click",async (e)=>{
-    e.preventDefault();
-    console.log('pressed button')
-   const userObj = {
-    content:document.querySelector("#content").value,
-    post_id: document.querySelector('#post-card').getAttribute('data-postID')
+for (i of addCommentbtn) {
+    i.addEventListener("click",async (e)=>{
+        e.preventDefault();
+       postID = i.getAttribute('data-postID')
+       const userObj = {
+        content:document.querySelector("#content").value,
+        post_id:postID
+    }
+    console.log(userObj)
+      const comment = await fetch("/api/comment",{
+           method:"POST",
+           body:JSON.stringify(userObj),
+           headers:{
+               "Content-Type":"application/json"
+           }
+       })
+       location.reload()
+   })
+   
 }
- console.log(userObj)
-   const comment = await fetch("/api/comment",{
-        method:"POST",
-        body:JSON.stringify(userObj),
-        headers:{
-            "Content-Type":"application/json"
-        }
-    })
-    location.reload()
-})

@@ -1,6 +1,6 @@
 <h1>Blog Posts!</h1>
 {{#each allPosts}}
-    <div id = 'post-card' data-postID="{{id}}" class="card">
+    <div class="card">
     <div class="card-header">
         {{title}}
     </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button id='addComment' type="button" class="btn btn-primary">Add comment</button>
+        <button data-postID="{{id}}" id='addComment' type="button" class="btn btn-primary">Add comment</button>
       </div>
     </div>
   </div>
